@@ -5,54 +5,56 @@
 [![Privacy](https://img.shields.io/badge/Privacy-100%25%20Client--Side-10b981?style=for-the-badge)](https://tavardt-mexico.github.io/ai-threat-matrix-mx/)
 [![License](https://img.shields.io/badge/License-MIT-slate?style=for-the-badge)](LICENSE)
 
-Matriz interactiva de amenazas y evaluacion de riesgos para sistemas con inteligencia artificial. Basado en OWASP LLM y MITRE ATLAS.
+Matriz interactiva de amenazas y evaluación de riesgos para sistemas con inteligencia artificial. Basado en OWASP LLM y MITRE ATLAS.
 
-Desarrollado para organizaciones e ingenieros en **Mexico**, este repositorio provee una suite practica para inspeccionar y blindar arquitecturas de inteligencia artificial segun estandares internacionales.
+Desarrollado para organizaciones, investigadores y equipos de ingeniería en **México**, este repositorio proporciona una matriz estructurada para evaluar la postura defensiva y generar planes de mitigación técnica en sistemas basados en Modelos de Lenguaje y agentes autónomos de Inteligencia Artificial.
 
 ---
 
-## Modos de Operacion
+## Modos de Operación
 
-### 1. Aplicacion Web en Navegador (GitHub Pages)
-Acceda a la version grafica interactiva desde cualquier navegador web:
-- **Enlace Oficial**: [https://tavardt-mexico.github.io/ai-threat-matrix-mx/](https://tavardt-mexico.github.io/ai-threat-matrix-mx/)
-- **Privacidad Total**: Procesamiento en el motor JavaScript local. Ningun archivo o dato se remite a servidores externos.
+### 1. Aplicación Web en el Navegador (GitHub Pages)
+Acceda a la versión interactiva directamente en su navegador:
+- **Dirección Oficial**: [https://tavardt-mexico.github.io/ai-threat-matrix-mx/](https://tavardt-mexico.github.io/ai-threat-matrix-mx/)
+- **Privacidad por Diseño**: Procesamiento 100% local en el motor JavaScript de su navegador. Ningún dato arquitectónico o resultado se transmite a servidores remotos.
 
-### 2. Herramienta de Linea de Comandos (CLI)
-Para validaciones automaticas en pipelines de CI/CD o revisiones locales:
+### 2. Utilidad de Línea de Comandos (CLI)
+Para validación automatizada en flujos de integración continua (CI/CD) o auditorías locales:
 
 ```bash
-# Evaluacion de arquitectura de agente autonomo
+# Evaluación básica con perfil de arquitectura de agente autónomo
 python threat_matrix_evaluator.py --arch agent
 
-# Exportar Blueprint de Blindaje a Markdown
+# Exportación del Blueprint de Mitigación en Markdown
 python threat_matrix_evaluator.py --arch rag --export-blueprint hardening-blueprint.md
 
-# Modo estricto para pipelines (falla con codigo 1 si hay riesgos)
+# Validación mediante archivo de perfil de controles defensivos
 python threat_matrix_evaluator.py --profile profile.json --strict
 
-# Salida estructurada en JSON
+# Salida estructurada en JSON para automatizaciones
 python threat_matrix_evaluator.py --arch agent --json
 ```
 
 ---
 
-## 10 Vectores de Amenaza Evaluados (OWASP Top 10 for LLMs)
+## 10 Vectores Críticos de Riesgo (OWASP Top 10 for LLMs)
 
-1. **Inyeccion de Prompts (Directa e Indirecta)**: Manipulacion de directrices del modelo mediante entradas maliciosas o contexto externo.
-2. **Divulgacion de Informacion Sensible**: Fuga involuntaria de datos confidenciales en las respuestas del sistema.
-3. **Vulnerabilidades en Cadena de Suministro**: Librerias desactualizadas, complementos vulnerables o modelos sin procedencia verificada.
-4. **Envenenamiento de Datos y Modelos**: Corrupcion intencionada de conjuntos de entrenamiento o bases documentales.
-5. **Tratamiento Inadecuado de Salidas**: Paso de respuestas sin sanear a interpretes de codigo o motores de bases de datos.
-6. **Exceso de Autonomia en Agentes**: Herramientas con permisos de ejecucion sin limites ni validacion humana.
-7. **Fuga del Prompt de Sistema**: Extraccion de reglas de negocio confidenciales incluidas en el prompt base.
-8. **Debilidades en Embeddings y Vectores**: Inyeccion de documentos alterados en la base vectorial para manipular la respuesta.
-9. **Alucinaciones y Desinformacion Critica**: Generacion de conclusiones falsas en flujos criticos de decision operativa.
+1. **Inyección de Prompts (Directa e Indirecta)**: Manipulación de instrucciones del modelo mediante entradas manipuladas o contexto externo.
+2. **Divulgación de Información Sensible**: Fuga involuntaria de datos confidenciales o secretos en las respuestas del sistema.
+3. **Vulnerabilidades en Cadena de Suministro**: Librerías desactualizadas, complementos vulnerables o modelos sin procedencia verificada.
+4. **Envenenamiento de Datos y Modelos**: Corrupción intencionada de conjuntos de entrenamiento o bases documentales.
+5. **Tratamiento Inadecuado de Salidas**: Paso de respuestas sin sanear a intérpretes de código o motores de bases de datos.
+6. **Exceso de Autonomía en Agentes**: Herramientas con permisos de ejecución sin límites ni validación humana.
+7. **Fuga del Prompt de Sistema**: Extracción de reglas de negocio confidenciales incluidas en el prompt base.
+8. **Debilidades en Embeddings y Vectores**: Inyección de documentos alterados en la base vectorial para manipular la respuesta.
+9. **Alucinaciones y Desinformación Crítica**: Generación de conclusiones falsas en flujos críticos de decisión operativa.
 10. **Consumo Ilimitado de Recursos**: Agotamiento de capacidad computacional o sobrecostes abusivos de tokens.
 
 ---
 
-## Integracion en GitHub Actions
+## Integración en CI/CD (GitHub Actions)
+
+Ejemplo de pipeline para verificación continua de postura defensiva:
 
 ```yaml
 name: AI Threat Matrix Gate
@@ -63,30 +65,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Instalar Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Ejecutar Evaluacion de Amenazas en IA
+      - name: Run AI Threat Matrix Assessment
         run: |
           python threat_matrix_evaluator.py --arch agent --strict
 ```
 
 ---
 
-## Referenciales y Conformidad
+## Cumplimiento y Estándares Técnicos
 
-- **Jurisdiccion**: Mexico
-- **Marco Tecnico**: Lineamientos Internacionales de Ciberseguridad en IA y OWASP
-- **Organizacion**: [TAVARDT-Mexico](https://github.com/TAVARDT-Mexico)
+- **Jurisdicción**: México
+- **Estándar de Cumplimiento**: OWASP Top 10 para Aplicaciones LLM y MITRE ATLAS
+- **Organización Mantenedora**: [TAVARDT-Mexico](https://github.com/TAVARDT-Mexico)
 
-## Enlaces TAVARDT
+## Ecosistema TAVARDT y Portales Oficiales
 
 - **Portal Institucional**: [https://ag.tavardt.com/mx/](https://ag.tavardt.com/mx/)
-- **Herramientas de Ciberseguridad**: [https://tools.tavardt.com/mx/](https://tools.tavardt.com/mx/)
-- **Contacto Tecnico**: [https://ag.tavardt.com/mx/contacto/](https://ag.tavardt.com/mx/contacto/)
+- **Centro de Herramientas TAVARDT**: [https://tools.tavardt.com/mx/](https://tools.tavardt.com/mx/)
+- **Canal de Atención y Soporte Técnico**: [https://ag.tavardt.com/mx/contacto/](https://ag.tavardt.com/mx/contacto/)
 
 ---
 
 ### Licencia
-Distribuido bajo terminos de la licencia MIT. Revise el archivo [LICENSE](LICENSE) para mas informacion.
+Distribuido bajo la Licencia MIT. Consulte el archivo [LICENSE](LICENSE) para más detalles.
