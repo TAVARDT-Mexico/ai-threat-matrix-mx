@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-TAVARDT Mexico
+TAVARDT México
 Matriz Interactiva de Amenazas para Sistemas de Inteligencia Artificial
-Matriz interactiva de amenazas y evaluacion de riesgos para sistemas con inteligencia artificial. Basado en OWASP LLM y MITRE ATLAS.
+Matriz interactiva de amenazas y evaluación de riesgos para sistemas con inteligencia artificial. Basado en OWASP LLM y MITRE ATLAS.
 
-Standard: Lineamientos Internacionales de Ciberseguridad en IA y OWASP
+Standard: OWASP Top 10 para Aplicaciones LLM y MITRE ATLAS
 Repository: https://github.com/TAVARDT-Mexico/ai-threat-matrix-mx
 Online Web App: https://tavardt-mexico.github.io/ai-threat-matrix-mx/
 """
@@ -17,15 +17,15 @@ import argparse
 from datetime import datetime
 
 THREAT_DEFINITIONS = [
-    {"id": "LLM01", "code": "OWASP-LLM01", "title": "Inyeccion de Prompts (Directa e Indirecta)", "weight": 15, "default": "exposed"},
-    {"id": "LLM02", "code": "OWASP-LLM02", "title": "Divulgacion de Informacion Sensible", "weight": 12, "default": "partial"},
+    {"id": "LLM01", "code": "OWASP-LLM01", "title": "Inyección de Prompts (Directa e Indirecta)", "weight": 15, "default": "exposed"},
+    {"id": "LLM02", "code": "OWASP-LLM02", "title": "Divulgación de Información Sensible", "weight": 12, "default": "partial"},
     {"id": "LLM03", "code": "OWASP-LLM03", "title": "Vulnerabilidades en Cadena de Suministro", "weight": 10, "default": "exposed"},
     {"id": "LLM04", "code": "OWASP-LLM04", "title": "Envenenamiento de Datos y Modelos", "weight": 10, "default": "exposed"},
     {"id": "LLM05", "code": "OWASP-LLM05", "title": "Tratamiento Inadecuado de Salidas", "weight": 12, "default": "exposed"},
-    {"id": "LLM06", "code": "OWASP-LLM06", "title": "Exceso de Autonomia en Agentes", "weight": 14, "default": "exposed"},
+    {"id": "LLM06", "code": "OWASP-LLM06", "title": "Exceso de Autonomía en Agentes", "weight": 14, "default": "exposed"},
     {"id": "LLM07", "code": "OWASP-LLM07", "title": "Fuga del Prompt de Sistema", "weight": 8,  "default": "defended"},
     {"id": "LLM08", "code": "OWASP-LLM08", "title": "Debilidades en Embeddings y Vectores", "weight": 7,  "default": "partial"},
-    {"id": "LLM09", "code": "OWASP-LLM09", "title": "Alucinaciones y Desinformacion Critica", "weight": 6,  "default": "defended"},
+    {"id": "LLM09", "code": "OWASP-LLM09", "title": "Alucinaciones y Desinformación Crítica", "weight": 6,  "default": "defended"},
     {"id": "LLM10", "code": "OWASP-LLM10", "title": "Consumo Ilimitado de Recursos", "weight": 6,  "default": "exposed"}
 ]
 
@@ -76,10 +76,10 @@ def generate_blueprint_md(evaluation):
     ts = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
     md = []
     md.append("# AI Security Hardening Blueprint")
-    md.append(f"- **Organization**: TAVARDT Mexico")
+    md.append(f"- **Organization**: TAVARDT México")
     md.append(f"- **Evaluation Date**: {ts} UTC")
     md.append(f"- **Architecture Profile**: {evaluation['architecture'].upper()}")
-    md.append(f"- **Compliance Standard**: Lineamientos Internacionales de Ciberseguridad en IA y OWASP")
+    md.append(f"- **Compliance Standard**: OWASP Top 10 para Aplicaciones LLM y MITRE ATLAS")
     md.append(f"- **Hardening Score**: {evaluation['score']} / 100")
     md.append(f"- **Defensive Posture**: {evaluation['posture']}")
     md.append("")
@@ -100,10 +100,10 @@ def generate_blueprint_md(evaluation):
 
 def main():
     parser = argparse.ArgumentParser(description="Evaluador de Postura de Seguridad en Inteligencia Artificial y Generador de Blueprint.")
-    parser.add_argument("--arch", choices=["agent", "rag", "chat", "api"], default="agent", help="Perfil arquitectonico del sistema (agent, rag, chat, api)")
+    parser.add_argument("--arch", choices=["agent", "rag", "chat", "api"], default="agent", help="Perfil arquitectónico del sistema (agent, rag, chat, api)")
     parser.add_argument("--profile", help="Ruta al archivo JSON con estado de controles defensivos")
-    parser.add_argument("--export-blueprint", help="Exportar blueprint de mitigacion en archivo Markdown")
-    parser.add_argument("--strict", action="store_true", help="Salir con codigo 1 si existe algun vector vulnerable")
+    parser.add_argument("--export-blueprint", help="Exportar blueprint de mitigación en archivo Markdown")
+    parser.add_argument("--strict", action="store_true", help="Salir con código 1 si existe algún vector vulnerable")
     parser.add_argument("--json", action="store_true", help="Mostrar resultado en formato JSON estructurado")
 
     args = parser.parse_args()
@@ -128,14 +128,14 @@ def main():
         bp_content = generate_blueprint_md(eval_res)
         with open(args.export_blueprint, "w", encoding="utf-8") as bf:
             bf.write(bp_content)
-        print(f"Blueprint de mitigacion guardado con exito en: {args.export_blueprint}")
+        print(f"Blueprint de mitigación guardado con éxito en: {args.export_blueprint}")
 
     if args.json:
         print(json.dumps(eval_res, indent=2, ensure_ascii=False))
     else:
         print("=" * 64)
-        print(f"MATRIZ DE AMENAZAS EN IA: TAVARDT Mexico")
-        print(f"Standard: Lineamientos Internacionales de Ciberseguridad en IA y OWASP")
+        print(f"MATRIZ DE AMENAZAS EN IA: TAVARDT México")
+        print(f"Standard: OWASP Top 10 para Aplicaciones LLM y MITRE ATLAS")
         print(f"Architecture: {eval_res['architecture'].upper()}")
         print(f"Hardening Score: {eval_res['score']} / 100")
         print(f"Defensive Posture: {eval_res['posture']}")
