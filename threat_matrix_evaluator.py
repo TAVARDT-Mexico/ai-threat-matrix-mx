@@ -103,8 +103,8 @@ def main():
     parser.add_argument("--arch", choices=["agent", "rag", "chat", "api"], default="agent", help="Perfil arquitectónico del sistema (agent, rag, chat, api)")
     parser.add_argument("--profile", help="Ruta al archivo JSON con estado de controles defensivos")
     parser.add_argument("--export-blueprint", help="Exportar blueprint de mitigación en archivo Markdown")
-    parser.add_argument("--strict", action="store_true", help="Salir con código 1 si existe algún vector vulnerable")
-    parser.add_argument("--json", action="store_true", help="Mostrar resultado en formato JSON estructurado")
+    parser.add_argument("-strict", "--strict", action="store_true", help="Salir con código 1 si existe algún vector vulnerable")
+    parser.add_argument("-json", "--json", action="store_true", help="Mostrar resultado en formato JSON estructurado")
 
     args = parser.parse_args()
 
