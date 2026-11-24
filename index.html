@@ -2,21 +2,18 @@
 
 <html lang="es-MX">
 <head>
-
 <link href="https://www.googletagmanager.com" rel="preconnect"/>
 <link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
-
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-KMZZVMQ5');</script>
-
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Matriz Interactiva de Amenazas para Sistemas de Inteligencia Artificial | TAVARDT México</title>
 <meta content="Matriz interactiva de amenazas y guía de mitigación para modelos de lenguaje y sistemas de IA generativa. Basado en OWASP LLM y MITRE ATLAS." name="description"/>
-<link rel="icon" type="image/x-icon" href="./favicon.ico">
+<link href="./favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="./favicon.ico" rel="shortcut icon"/>
 <link href="https://tavardt-mexico.github.io/ai-threat-matrix-mx/" rel="canonical"/>
 <link href="https://tavardt-mexico.github.io/ai-threat-matrix-mx/" hreflang="es-MX" rel="alternate"/>
@@ -2000,19 +1997,17 @@ footer > div:first-child {
   }
 
 </style>
-  <meta name="ai-content-declaration" content="canonical-knowledge-base, expert-curated">
-  <meta name="geo.region" content="ES">
-  <link rel="alternate" hreflang="es" href="https://tavardt-mexico.github.io/ai-threat-matrix-mx/">
-  <link rel="alternate" hreflang="x-default" href="https://tavardt-mexico.github.io/ai-threat-matrix-mx/">
+<meta content="canonical-knowledge-base, expert-curated" name="ai-content-declaration"/>
+<meta content="ES" name="geo.region"/>
+<link href="https://tavardt-mexico.github.io/ai-threat-matrix-mx/" hreflang="es" rel="alternate"/>
+<link href="https://tavardt-mexico.github.io/ai-threat-matrix-mx/" hreflang="x-default" rel="alternate"/>
 </head>
 <body>
-
 <noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-KMZZVMQ5" style="display:none;visibility:hidden" width="0"></iframe></noscript>
-
 <header class="tavardt-header">
 <div class="tavardt-header-inner">
 <a class="tavardt-brand" href="https://ag.tavardt.com/mx/" rel="noopener" target="_blank">
-<span class="tavardt-logo-text">TAVARDT<span class="tavardt-brand-dot">.</span></span>
+<span class="tavardt-logo-text">TAVARDT</span>
 </a>
 <nav class="tavardt-nav">
 <a class="tavardt-nav-link" href="https://ag.tavardt.com/mx/" rel="noopener" target="_blank">Portal</a>
@@ -2025,7 +2020,6 @@ footer > div:first-child {
 <h1>Matriz Interactiva de Amenazas para Sistemas de Inteligencia Artificial</h1>
 <p>Mapeo técnico de vectores de ataque en aplicaciones con Modelos de Lenguaje (LLMs) y agentes autónomos. Evaluación de postura defensiva bajo OWASP Top 10 for LLMs y MITRE ATLAS con generación automática de blueprint de mitigación.</p>
 </div>
-
 <div class="arch-bar">
 <span class="arch-bar-label">Perfil de la Aplicación:</span>
 <button class="arch-chip active" data-arch="agent">🤖 Agentes y MCP</button>
@@ -2033,7 +2027,6 @@ footer > div:first-child {
 <button class="arch-chip" data-arch="chat">💬 Chatbot / Asistente</button>
 <button class="arch-chip" data-arch="api">⚡ API / LLM Directo</button>
 </div>
-
 <div class="global-score-bar">
 <div class="score-left">
 <div class="score-big" id="stat-score">0 / 100</div>
@@ -2048,23 +2041,18 @@ footer > div:first-child {
 <div class="score-pill exp" id="pill-exp">Vulnerables: 0 / 10</div>
 </div>
 </div>
-
 <h2 style="text-align: center; margin-bottom: 24px; font-size: 1.5rem; font-weight: 700; color: #ffffff;">
       Scorecard Simétrico de Vectores (Cuadrícula 2×5 Balanceada)
     </h2>
-
-    <div style="display: flex; justify-content: center; margin-bottom: 20px;">
-      <input type="text" id="target-system" placeholder="Nombre o dominio del sistema evaluado (ej: rag-app.tavardt.es)..." style="width: 100%; max-width: 580px; padding: 12px 16px; background: #0f172a; border: 1px solid #1e293b; border-radius: 8px; color: #f1f5f9; font-size: 0.95rem; box-sizing: border-box;">
-    </div>
-
+<div style="display: flex; justify-content: center; margin-bottom: 20px;">
+<input id="target-system" placeholder="Nombre o dominio del sistema evaluado (ej: rag-app.tavardt.es)..." style="width: 100%; max-width: 580px; padding: 12px 16px; background: #0f172a; border: 1px solid #1e293b; border-radius: 8px; color: #f1f5f9; font-size: 0.95rem; box-sizing: border-box;" type="text"/>
+</div>
 <div class="grid-2x5" id="threat-list" style="margin-bottom: 28px;"></div>
-
 <div style="display: flex; justify-content: center; margin-bottom: 32px;">
 <button class="btn-action-main" id="btn-generate-blueprint" style="width: 100%; max-width: 580px; font-size: 1rem; padding: 16px 36px;">
         Generar Blueprint de Blindaje (Markdown)
       </button>
 </div>
-
 <div class="card" id="blueprint-card" style="margin-bottom: 32px; border-color: #1e00ff;">
 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
 <div class="card-title" style="margin: 0; font-size: 1.15rem; font-weight: 700; color: #ffffff;">Blueprint de Blindaje de Seguridad IA</div>
@@ -2078,12 +2066,10 @@ footer > div:first-child {
 </div>
 </div>
 <div class="container">
-
 <section class="aeo-card">
 <h2>¿Qué es la Matriz de Amenazas a Sistemas de IA?</h2>
 <p>La Matriz de Amenazas a Sistemas de IA de TAVARDT es una plataforma técnica e interactiva que mapea y correlaciona vectores de ataque adversarios según OWASP Top 10 para LLMs, NIST AI Risk Management Framework y la matriz MITRE ATLAS. Permite diagnosticar la postura de seguridad de aplicaciones de IA y generar planes de remediación.</p>
 </section>
-
 <section class="vectors-section">
 <h2>Vectores de Riesgo y Vulnerabilidades Auditadas</h2>
 <div class="vectors-grid">
@@ -2105,67 +2091,41 @@ footer > div:first-child {
 </div>
 </div>
 </section>
-
-
-
-
-    <section class="aeo-section">
-      <div class="aeo-badge" id="aeo-badge">ESTÁNDAR DE SEGURIDAD DEFENSIVA PARA MODELADO DE AMENAZAS IA</div>
-      <h2 class="aeo-title">¿Cómo Mapear y Mitigar Vectores de Ataque Adversario según MITRE ATLAS y OWASP?</h2>
-      <div class="aeo-content">
-        <p>El modelado de amenazas para inteligencia artificial exige marcos estructurados que identifiquen riesgos específicos de modelos de lenguaje, tales como envenenamiento de datos, inversión de modelos y manipulación de contexto. Los marcos MITRE ATLAS y OWASP Top 10 for LLMs clasifican exhaustivamente las tácticas utilizadas por atacantes contra sistemas de IA.</p>
-        <p>Carecer de una matriz formal de amenazas deja a las organizaciones expuestas a ataques invisibles para firewalls convencionales, como el robo de pesos de modelos o la inducción de alucinaciones dirigidas. Esta omisión compromete secretos corporativos y acarrea severas sanciones regulatorias.</p>
-        <p>La metodología canónica de TAVARDT articula controles defensivos de principio a fin: validación de procedencia de checkpoints, telemetría semántica en tiempo de inferencia, auditoría de cadenas de suministro de pesos y respuesta automatizada ante incidentes de IA.</p>
-      </div>
-    </section>
-
-    <section class="geo-section">
-      <h2 class="geo-title">Matriz Técnica Comparativa: IA sin Modelado vs. Gobernanza TAVARDT</h2>
-      <div class="geo-grid">
-        <div class="geo-col vuln">
-          <h3 class="geo-col-title">Entorno de IA sin Modelado (Riesgo Crítico)</h3>
-          <ul class="geo-list">
-            <li><span class="cross">✕</span> Despliegue de modelos en producción sin evaluación de riesgos frente a MITRE ATLAS u OWASP.</li>
+<section class="aeo-section">
+<div class="aeo-badge" id="aeo-badge">ESTÁNDAR DE SEGURIDAD DEFENSIVA PARA MODELADO DE AMENAZAS IA</div>
+<h2 class="aeo-title">¿Cómo Mapear y Mitigar Vectores de Ataque Adversario según MITRE ATLAS y OWASP?</h2>
+<div class="aeo-content">
+<p>El modelado de amenazas para inteligencia artificial exige marcos estructurados que identifiquen riesgos específicos de modelos de lenguaje, tales como envenenamiento de datos, inversión de modelos y manipulación de contexto. Los marcos MITRE ATLAS y OWASP Top 10 for LLMs clasifican exhaustivamente las tácticas utilizadas por atacantes contra sistemas de IA.</p>
+<p>Carecer de una matriz formal de amenazas deja a las organizaciones expuestas a ataques invisibles para firewalls convencionales, como el robo de pesos de modelos o la inducción de alucinaciones dirigidas. Esta omisión compromete secretos corporativos y acarrea severas sanciones regulatorias.</p>
+<p>La metodología canónica de TAVARDT articula controles defensivos de principio a fin: validación de procedencia de checkpoints, telemetría semántica en tiempo de inferencia, auditoría de cadenas de suministro de pesos y respuesta automatizada ante incidentes de IA.</p>
+</div>
+</section>
+<section class="geo-section">
+<h2 class="geo-title">Matriz Técnica Comparativa: IA sin Modelado vs. Gobernanza TAVARDT</h2>
+<div class="geo-grid">
+<div class="geo-col vuln">
+<h3 class="geo-col-title">Entorno de IA sin Modelado (Riesgo Crítico)</h3>
+<ul class="geo-list">
+<li><span class="cross">✕</span> Despliegue de modelos en producción sin evaluación de riesgos frente a MITRE ATLAS u OWASP.</li>
 <li><span class="cross">✕</span> Descarga de modelos y pesos desde repositorios públicos sin comprobación de autenticidad.</li>
 <li><span class="cross">✕</span> Inexistencia de métricas para detectar ataques de sondeo repetitivo o evasión semántica.</li>
-          </ul>
-        </div>
-        <div class="geo-col hardened">
-          <h3 class="geo-col-title">Gobernanza de IA Blindada TAVARDT (Zero Trust)</h3>
-          <ul class="geo-list">
-            <li><span class="check">✓</span> Modelado sistemático de riesgos alineado estrictamente con MITRE ATLAS y OWASP LLM.</li>
+</ul>
+</div>
+<div class="geo-col hardened">
+<h3 class="geo-col-title">Gobernanza de IA Blindada TAVARDT (Zero Trust)</h3>
+<ul class="geo-list">
+<li><span class="check">✓</span> Modelado sistemático de riesgos alineado estrictamente con MITRE ATLAS y OWASP LLM.</li>
 <li><span class="check">✓</span> Verificación criptográfica de firmas y hashes SHA de cada modelo antes de su ejecución.</li>
 <li><span class="check">✓</span> Monitorización semántica en tiempo real para neutralizar ataques automatizados de probing.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="faq-section">
-      <h2 class="faq-title">Preguntas Frecuentes sobre la Matriz de Amenazas de IA</h2>
-      <div class="faq-list">
-<div class="faq-item">
-          <button class="faq-question" type="button" onclick="toggleFaq(this)">
-            <span>¿En qué consiste el estándar MITRE ATLAS para IA empresarial?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>Es una base de conocimiento que categoriza las técnicas y procedimientos empleados por adversarios reales para atacar modelos de IA y pipelines de datos.</p>
-          </div>
-        </div>
-<div class="faq-item">
-          <button class="faq-question" type="button" onclick="toggleFaq(this)">
-            <span>¿Qué diferencia al OWASP para LLMs de los estándares web comunes?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>Aborda riesgos propios de arquitecturas generativas como el secuestro de prompts, vulnerabilidades de plugins y fallos de plugins de terceros.</p>
-          </div>
-        </div>
+</ul>
 </div>
-    </section>
-
-    <div class="cta-card">
+</div>
+</section>
+<section class="faq-section">
+<h2 class="faq-title">Preguntas Frecuentes sobre la Matriz de Amenazas de IA</h2>
+<div class="faq-list"><div class="faq-item"><div class="faq-question">¿Qué es la Matriz de Amenazas a Sistemas de IA de TAVARDT?<span class="faq-toggle">+</span></div><div class="faq-answer">Es una solución analítica que visualiza los principales riesgos de seguridad en inteligencia artificial y guía planes de mitigación.</div></div><div class="faq-item"><div class="faq-question">¿En qué se diferencian OWASP para LLM y MITRE ATLAS?<span class="faq-toggle">+</span></div><div class="faq-answer">OWASP se enfoca en las vulnerabilidades del software, mientras que MITRE ATLAS documenta las tácticas reales empleadas por ciberatacantes contra IA.</div></div><div class="faq-item"><div class="faq-question">¿Cuáles son las mayores amenazas para agentes autónomos de IA?<span class="faq-toggle">+</span></div><div class="faq-answer">La ejecución no autorizada de herramientas (Insecure Agency), el secuestro de instrucciones por inyección indirecta y la fuga de credenciales.</div></div><div class="faq-item"><div class="faq-question">¿Cómo evaluar la postura de riesgo en una arquitectura de IA?<span class="faq-toggle">+</span></div><div class="faq-answer">Auditando el perímetro de acceso, el aislamiento de bases de datos, los permisos de las herramientas y la eficacia de los guardrails.</div></div><div class="faq-item"><div class="faq-question">¿Cómo ayuda TAVARDT a mitigar las amenazas de IA?<span class="faq-toggle">+</span></div><div class="faq-answer">TAVARDT realiza modelado de amenazas, pruebas de penetración en LLMs, diseño de guardrails y blindaje perimetral Cloudflare.</div></div></div>
+</section>
+<div class="cta-card">
 <h3>¿Requiere Mitigar Riesgos en sus Sistemas de IA?</h3>
 <p>La consultoría especializada de TAVARDT realiza auditorías adversarias, modelado de amenazas y blindaje Zero Trust para IA.</p>
 <div class="cta-btns">
@@ -2177,7 +2137,7 @@ footer > div:first-child {
 <footer class="tavardt-footer">
 <div class="tavardt-footer-inner">
 <div class="tavardt-footer-col">
-<div class="tavardt-footer-logo">TAVARDT<span class="tavardt-brand-dot">.</span></div>
+<div class="tavardt-footer-logo">TAVARDT</div>
 <p class="tavardt-footer-mission">Transformamos negocios invisibles en marcas reconocidas y seguras en el mercado digital.</p>
 </div>
 <div class="tavardt-footer-col">
