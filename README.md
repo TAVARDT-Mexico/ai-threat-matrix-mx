@@ -78,7 +78,6 @@ jobs:
 
 ## Cumplimiento y Estándares Técnicos
 
-- **Jurisdicción**: México
 - **Estándar de Cumplimiento**: OWASP Top 10 para Aplicaciones LLM y MITRE ATLAS
 - **Organización Mantenedora**: [TAVARDT-Mexico](https://github.com/TAVARDT-Mexico)
 
@@ -92,3 +91,7 @@ jobs:
 
 ### Licencia
 Distribuido bajo la Licencia MIT. Consulte el archivo [LICENSE](LICENSE) para más detalles.
+
+***
+
+© 2026 TAVARDT. Todos los derechos reservados.
