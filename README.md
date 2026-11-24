@@ -80,7 +80,13 @@ jobs:
 
 - **Estándar de Cumplimiento**: OWASP Top 10 para Aplicaciones LLM y MITRE ATLAS
 
+***
 
+## Enlaces Útiles
+
+* **Portal Corporativo:** https://ag.tavardt.com/mx/
+* **Suite de Diagnósticos:** https://tools.tavardt.com/mx/
+* **Contacto Técnico:** https://ag.tavardt.com/mx/contacto/
 
 ***
 
